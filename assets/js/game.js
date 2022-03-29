@@ -1,3 +1,4 @@
+    //    targeting the classes and ids from the game.html
 const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
 const ProgressText = document.querySelector('#progressText');
@@ -7,13 +8,14 @@ const progressBarFull = document.querySelector('#progressBarFull');
 
  let timerId;
 
-
+//  variables for the questions and the score
 let currentQuestion = {}
 let acceptingAnswers = true;
 let score = 0
 let questionCounter = 0
 let availableQuestions= []
 
+// Array of questions and answers
 let questions = [
    {
        question:'What tag is used to define an unordered list that is bulleted?',
@@ -57,10 +59,11 @@ let questions = [
  }
 
 ]
-
+// max number of questions and the points you will receive from each correct answer
 const SCORE_POINTS = 100
 const MAX_QUESTIONS = 5
 
+// score and question will display 0 when started
 startGame = () => {
     questionCounter = 0
     score= 0
@@ -94,6 +97,7 @@ getNewQuestion =() => {
     acceptingAnswers = true
 }   
 
+//  if the choice is right or wrong the box will be green or red 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if(!acceptingAnswers) return
